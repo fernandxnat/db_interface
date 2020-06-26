@@ -1,0 +1,109 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: url("vistas/fondo-100.jpg");
+    color: #000000;
+    vertical-align: center;
+    
+}
+head{
+    color: #000000;
+}
+#login .container #login-row #login-column #login-box{
+    margin top: 70px;
+    max-width: 600px;
+    height: 300px;
+    box-shadow: 2px 2px 2px 2px #343a40;
+    border-radius: 5px;
+    
+}
+
+
+.site-logo {
+	
+	padding: 0px 0px 0px;
+    size: 100x40;
+    border-style: none;
+    vertical-align: middle;
+}
+
+#cssmenu {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+#cssmenu ul,
+#cssmenu li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#cssmenu ul {
+  position: relative;
+  z-index: 597;
+}
+
+#cssmenu ul li {
+  float: left;
+  min-height: 1px;
+  vertical-align: middle;
+}
+
+#cssmenu ul li.hover,
+#cssmenu ul li:hover {
+  position: relative;
+  z-index: 599;
+  cursor: default;
+}
+
+#cssmenu ul ul {
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 598;
+  width: 100%;
+}
+
+#cssmenu ul ul li {
+  float: none;
+}
+
+#cssmenu ul ul ul {
+  top: 0;
+  left: auto;
+  right: -99.5%;
+}
+
+#cssmenu ul li:hover>ul {
+  visibility: visible;
+}
+
+#cssmenu ul ul {
+  bottom: 0;
+  left: 0;
+}
+
+#cssmenu ul ul {
+  margin-top: 0;
+}
+
+#cssmenu ul ul li {
+  font-weight: normal;
+}
+
+#cssmenu a {
+  display: block;
+  line-height: 1em;
+  text-decoration: none;
+}
+
+.site-fondo {
+	background: url("vistas/fondo%20inicio-100.jpg");
+	padding: 0px 0px 0px;
+    
+    border-style: none;
+    vertical-align: middle;
+}
