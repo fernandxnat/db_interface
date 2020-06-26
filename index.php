@@ -1,117 +1,60 @@
-<?php
-class Conexion{
-    public static function Conectar(){
-        define("servidor","localhost");
-        define("nombre_bd", "qvfesuocbo");
-        define("usuario","root");
-        define("password", "");
-        
-        //$opciones = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf-8");
-        
-        try{
-            $conexion = new PDO("mysql:host=".servidor."; dbname=".nombre_bd, usuario, password);//, $opciones);
-            return $conexion;
-        }catch(Exception $e){
-            die("El error de onexion es: ". $e->getMessage());
-        }
-        
-    }
-}
-//include_once '/bd/conexion.php';
-$objeto = new Conexion();
-$conexion = $objeto->Conectar();
-
-$consulta = "SELECT id_especie,nombre_comun,familia_especie,genero_especie,nombre_especie,id_forma,nom059,cites,iucn FROM especie_sp";
-$resultado = $conexion->prepare($consulta);
-$resultado->execute();
-$data = $resultado->fetchAll(PDO::FETCH_ASSOC);
-?>
-
 <!doctype html>
 <html>
     <head>
+        <link rel="shortcut icon" href="#" />
+        <!-- Required meta tags -->
         <meta charset="utf-8">
-        <meta name="viewport" content="width-device-width, initial-scale=1">
-        <link rel="shortcut icon" href="8">
-        <title>ECO JARDIN</title>
-        
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title  >Login Ecojardin</title>
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="estilos.css">
         
-        <link rel="stylesheet" type="text/css" href="datatables.min.css">
-        <link rel="stylesheet" type="text/css" href="datatablescar/css/dataTables.bootstrap4.min.css">
-        
+        <link rel="stylesheet" href="plugins/sweetalert2/sweetalert2.min.css">
     </head>
     
     <body>
-        <header>
-            <h3 class="text-center text-light">ECO JARDIN</h3>
-        </header>
-        
-        
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <button id="btnNuevo" type="button" class="btn btn-success">NUEVO</button>
+        <div id="login">
+            <h3 class="text-center text-black display-4">Login Ecojardín</h3>
+            
+            <div class="container">
+                <div id="login-row" class="row justify-content-center align-items-center">
+                    <div id="login-column" class="col-md-6">
+                    
+                        <div id="login-box" class="col-md-12 bg-light text-dark">
+                            <form id="formLogin" class="form" action="" method="post">
+                                <h3 class="text-center text-dark">Iniciar sesión</h3>
+                                <div class="form-group">
+                                    <label for="usuario" class="text-dark">Usuario</label>
+                                    <input type="text" name="usuario" id="usuario" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="text-dark">Contraseña</label>
+                                    <input type="password" name="password" id="password" class="form-control">
+                                </div>
+                                <div class="form-gropu text-center">
+                                    <input type="submit" name="submit" class="btn btn-info btn-lg btn-block" value="Ingresar">
+                                
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
+        
         </div>
         
         
         
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <table id="tabla_especie" class="table table-stripped table-bordered table-condensed" style="width:100%">
-                        <thead class="text-center">
-                            <tr>
-                                <th>ID especie</th>
-                                <th>Nombre común</th>
-                                <th>Familia</th>
-                                <th>Género</th>
-                                <th>Nombre de la especie</th>
-                                <th>ID forma</th>
-                                <th>NOM059</th>
-                                <th>CITES</th>
-                                <th>IUCN</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                             <?php
-                            foreach($data as $dat){
-                            ?>
-                            <tr>
-                                <td><?php echo $dat['id_especie'] ?></td>
-                                <td><?php echo $dat['nombre_comun'] ?></td>
-                                <td><?php echo $dat['familia_especie'] ?></td>
-                                <td><?php echo $dat['genero_especie'] ?></td>
-                                <td><?php echo $dat['nombre_especie'] ?></td>
-                                <td><?php echo $dat['id_forma'] ?></td>
-                                <td><?php echo $dat['nom059'] ?></td>
-                                <td><?php echo $dat['cites'] ?></td>
-                                <td><?php echo $dat['iucn'] ?></td>
-                                <td>
-                                    <div class="text-center">
-                                        <div class="btn-group">
-                                            <button class="btn btn-primary btnEditar">Editar</button>
-                                            <button class="btn btn-danger btnBorrar">Borrar</button>
-                                        </div>
-                                    </div>            
-                                </td>
-                            </tr>
-                            <?php
-                                }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
         
-
         
+        
+        
+        <script src="jquery/jquery-3.5.1.min.js"></script> 
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="popper/popper.min.js"></script>
+        
+        <script src="plugins/sweetalert2/sweetalert2.all.min.js"></script>
+        <script src="codigo.js"></script>
     </body>
-    
+
 </html>
